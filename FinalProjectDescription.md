@@ -2,9 +2,9 @@
 
 ## Introduction to DumPy
 
-DumPy is a programming language inspired by Python, designed to enforce best practices and simplify the process of writing clear, well-documented code. DumPy combines elements of Python’s easy readability with additional constraints that encourage structured programming. The goal is to offer developers a language that is flexible but disciplined, making it easier to maintain code over time.
+DumPy is a programming language inspired by Python, designed to enforce best practices and simplify the process of writing clear, well-documented code. DumPy combines elements of Python's readability with additional constraints that encourage structured programming. The goal is to offer developers a language that is flexible but disciplined, making it easier to maintain code over time.
 
-This guide will cover DumPy’s syntax, key features, and grammar, providing insight into its underlying design philosophy and practical examples of how to use it.
+This guide will cover DumPy's syntax, key features, and grammar, providing insight into its underlying design philosophy and practical examples of how to use it.
 
 ## Getting Started: Writing Your First DumPy Program
 
@@ -44,7 +44,7 @@ func multiply(a: Integer, b: Integer) -> Integer:
     return a * b
 ```
 
-This constraint not only documents the function’s behavior but also catches potential errors early, reducing debugging time.
+This constraint not only documents the function's behavior but also catches potential errors early, reducing debugging time.
 
 ## Working with Collections
 
@@ -72,7 +72,7 @@ let emptyDict: [String: Integer] = {}
 
 ## Control Flow
 
-Control flow in DumPy is handled using common structures like `if`, `elif`, and `else`. DumPy’s syntax emphasizes readability:
+Control flow in DumPy is handled using common structures like `if`, `elif`, and `else`. DumPy's syntax emphasizes readability:
 
 ```dumpy
 var score = 82
@@ -210,11 +210,32 @@ method        : function
 
 DumPy uses several types of tokens to define the components of the language:
 
-- **Keywords**: Reserved words like `if`, `for`, `while`, `func`, `class`, which are essential parts of the language.
-- **Literals**: Representations of values such as `NAME`, `CONSTANT`, `NUMBER`, `STRING`, `BOOLEAN`.
-- **Comments**: Both single-line (`#`) and block comments (`'''` or `"""`).
-- **Operators**: Arithmetic and comparison operators such as `+`, `-`, `*`, `/`, `==`, `!=`, etc.
-- **Whitespace Control**: Enforced by tokens such as `INDENT` and `DEDENT` to maintain readability.
+#### Literals
+- **NAME**: Variable name for dynamic variables; must use either `snake_case` or `camelCase` throughout a program.
+- **CONSTANT**: Static variables; all caps with underscores.
+- **NUMBER**: Includes integers and floats, using underscores for readability.
+  - **INTEGER**: No decimal points, formatted with underscores for large numbers.
+  - **FLOAT**: One decimal point allowed, underscores for large numbers.
+- **STRING**: Enforced use of double or single quotes.
+- **BOOLEAN**: Must be `True` or `False`.
+- **INDENT/DEDENT**: Enforces the use of 4 spaces for indentation.
+- **LINECOMMENT**: Uses `#` for line comments.
+- **BLOCKCOMMENT**: Uses `'''` or `"""` for block comments.
+
+#### Keywords
+- **Control Flow**: `if`, `elif`, `else`, `for`, `while`, `break`, `continue`, `pass`.
+- **Boolean Values**: `True`, `False`.
+- **Function Definitions**: `func`, `return`, `None`.
+- **Logical Operators**: `and`, `or`, `not`, `is`.
+- **Data Types**: `String`, `Integer`, `Float`, `Boolean`.
+- **Class Definitions**: `class`, `global`.
+- **Output**: `print`.
+
+#### Characters
+- **Parentheses and Brackets**: `LPAREN (`, `RPAREN )`, `LBRACE {`, `RBRACE }`, `LBRACKET [`, `RBRACKET ]`.
+- **Punctuation**: `COMMA ,`, `DOT .`, `COLON :`, `SEMICOLON ;`.
+- **Operators**: `PLUS +`, `MINUS -`, `TIMES *`, `DIVIDE /`, `MOD %`, `POWER **`.
+- **Comparison**: `EQUALS =`, `EQ ==`, `NE !=`, `LT <`, `LE <=`, `GT >`, `GE >=`.
 
 ## Extensions and Future Directions
 
@@ -258,13 +279,9 @@ echo("Current counter value: " + String(counter.count))  # Outputs 'Current coun
 
 Creating DumPy as a programming language is achievable, though it requires careful planning and significant development effort. Below is an outline to guide the process.
 
----
-
 ## 1. Define the Grammar (Parser)
-- Use a parser generator like [ANTLR] or Python's `ply`.
+- Use a parser generator like ANTLR or Python's `ply`.
 - Translate DumPy's grammar rules into a formal grammar recognized by your chosen tool.
-
----
 
 ## 2. Implement a Lexer
 - Define tokens for:
@@ -274,153 +291,24 @@ Creating DumPy as a programming language is achievable, though it requires caref
   - Other syntactic elements
 - Use tools like `ply` or ANTLR to tokenize DumPy source code.
 
----
-
 ## 3. Develop a Compiler or Interpreter
 - **Option 1**: Write an interpreter to execute DumPy code directly.
 - **Option 2**: Build a compiler that transpiles DumPy into Python or bytecode for a custom virtual machine.
 - Start with a simple interpreter using Python for rapid prototyping.
 
----
-
 ## 4. Integrate a Type Checker
-- Implement static type checking to enforce DumPy’s type safety principles.
+- Implement static type checking to enforce DumPy's type safety principles.
 - Use Abstract Syntax Trees (ASTs) to validate:
   - Function signatures
   - Variable types
   - Return values
 
----
-
 ## 5. Build a Standard Library
 - Provide built-in functions (`echo`, `range`, etc.) and common data structures (lists, dictionaries).
 - Ensure consistency with DumPy's philosophy of simplicity and clarity.
-
----
 
 ## 6. Error Handling
 - Create clear, precise error messages for syntax and runtime errors.
 - Use descriptive messages to guide developers toward solutions.
 
-This comprehensive guide has introduced the fundamental concepts of DumPy, from variables and collections to control flow, functions, and object-oriented programming. DumPy’s design philosophy prioritizes clear, maintainable code, and this is reflected throughout its grammar and syntax. By enforcing best practices, DumPy helps developers write code that is clean, understandable, and easy to debug.
-
-# Tokens
-
-## Literals
-- **NAME**: Variable name for dynamic variables. Enforces snake_case or camelCase but can only use one in a single program.
-- **CONSTANT**: Constant name for static variables. Enforces the use of all caps for constants with underscores.
-- **NUMBER**: Integer or float. Enforces the use of underscores for large numbers.
-  - **INTEGER**: Integer. Enforces the use of underscores for large numbers and no decimal points.
-  - **FLOAT**: Float. Enforces the use of underscores for large numbers and can only have one decimal point.
-- **STRING**: String. Enforces the use of double quotes or single quotes.
-- **BOOLEAN**: Boolean. Enforces the use of `True` or `False`.
-- **INDENT**: Indentation. Enforces the use of 4 spaces.
-- **DEDENT**: Dedentation. Enforces the use of 4 spaces.
-- **LINECOMMENT**: Line comment. Enforces the use of `#` for line comments.
-- **BLOCKCOMMENT**: Block comment. Enforces the use of `'''` or `"""` for block comments.
-- **SPACE**: Space. Enforces the use of spaces.
-
-## Keywords
-- **if**: If statement. Checks if a condition is true.
-- **elif**: Else if statement. Checks condition if the previous `if` and `elif` statements are false.
-- **else**: Else statement. Executes if all previous `if` and `elif` statements are false.
-- **for**: For loop. Loops through a list or iterable.
-- **while**: While loop. Loops while a condition is true.
-- **break**: Break statement. Breaks out of a loop.
-- **continue**: Continue statement. Skips the current iteration of a loop.
-- **pass**: Pass statement. Does nothing.
-- **True**: True value. Represents true or 1.
-- **False**: False value. Represents false or 0.
-- **func**: Function definition.
-- **None**: Represents no value.
-- **return**: Returns a value from a function.
-- **in**: Checks if a value is in a list or iterable.
-- **and**: Checks if two conditions are true.
-- **or**: Checks if one of two conditions is true.
-- **not**: Checks if a condition is false.
-- **is**: Checks if a value is the same class/object.
-- **String**: Class type for strings.
-- **Integer**: Class type for integers.
-- **Float**: Class type for floats.
-- **Boolean**: Class type for booleans.
-- **class**: Defines a class.
-- **global**: Defines a global variable.
-- **print**: Prints a value to the console.
-
-## Characters
-- **LPAREN**: `(` Left parenthesis.
-- **RPAREN**: `)` Right parenthesis.
-- **LBRACE**: `{` Left brace.
-- **RBRACE**: `}` Right brace.
-- **LBRACKET**: `[` Left bracket.
-- **RBRACKET**: `]` Right bracket.
-- **COMMA**: `,` Comma.
-- **DOT**: `.` Dot.
-- **COLON**: `:` Colon.
-- **SEMICOLON**: `;` Semicolon.
-- **PLUS**: `+` Plus.
-- **MINUS**: `-` Minus.
-- **TIMES**: `*` Times.
-- **DIVIDE**: `/` Divide.
--- **MOD**: `%` Modulus.
-- **POWER**: `**` Power.
-- **EQUALS**: `=` Equals.
-- **EQ**: `==` Equal to.
-- **NE**: `!=` Not equal to.
-- **LT**: `<` Less than.
-- **LE**: `<=` Less than or equal to.
-- **GT**: `>` Greater than.
-- **GE**: `>=` Greater than or equal to.
-
-## Grammar
-
-### Program
-```dumpy
-program : (function | class | statement | NEWLINE)*
-```
-
-### Statements
-```dumpy
-statement : assignment | if_statement | for_statement | while_statement | expression | print_statement
-assignment : (NAME | CONSTANT) EQUALS (expression | STRING | NUMBER | BOOLEAN)
-```
-
-### Control Flow
-```dumpy
-if_statement : IF SPACE expression COLON INDENT statement DEDENT (elif_statement | else_statement)?
-elif_statement : ELIF SPACE expression COLON INDENT statement DEDENT (elif_statement | else_statement)?
-else_statement : ELSE COLON INDENT statement DEDENT
-```
-
-### Loops
-```dumpy
-for_statement : FOR SPACE NAME SPACE IN SPACE expression COLON INDENT statement DEDENT
-while_statement : WHILE SPACE expression COLON INDENT statement DEDENT
-```
-
-### Expressions
-```dumpy
-expression : (expression (PLUS | MINUS | TIMES | DIVIDE | MOD | POWER) expression) | (expression (EQ | NE | LT | LE | GT | GE) expression) | (expression (AND | OR) expression) | (NOT expression) | (expression IS expression) | (LPAREN expression RPAREN) | (NAME | CONSTANT) | (NUMBER | STRING | BOOLEAN)
-```
-
-### Print Statement
-```dumpy
-print_statement : PRINT SPACE expression
-```
-
-### Function Definitions
-```dumpy
-function : (LINECOMMENT | BLOCKCOMMENT) FUNCTION SPACE NAME LPAREN parameters RPAREN COLON INDENT statement DEDENT
-parameters : (NAME COLON SPACE type (COMMA SPACE NAME COLON SPACE type)*)?
-type : STRING | INTEGER | FLOAT | BOOLEAN | NAME
-```
-
-### Classes
-```dumpy
-class : (LINECOMMENT | BLOCKCOMMENT) CLASS SPACE NAME COLON INDENT (attribute | method | statement)* DEDENT
-attribute : NAME COLON SPACE type
-method : FUNCTION SPACE NAME LPAREN parameters RPAREN COLON INDENT statement DEDENT
-```
-
-This concludes the detailed overview of DumPy's grammar, syntax, and language structure. The rules and guidelines provided help ensure that code written in DumPy is clean, maintainable, and understandable. As DumPy continues to evolve, new features and extensions will be developed to further enhance the language, while staying true to its core philosophy of simplicity and structured programming.
-
+This comprehensive guide has introduced the fundamental concepts of DumPy, from variables and collections to control flow, functions, and object-oriented programming. DumPy's design philosophy prioritizes clear, maintainable code, and this is reflected throughout its grammar and syntax. By enforcing best practices, DumPy helps developers write code that is clean, understandable, and easy to debug.
