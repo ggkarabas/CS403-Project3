@@ -4,7 +4,7 @@
 
 DumPy is a programming language inspired by Python, designed to enforce best practices and simplify the process of writing clear, well-documented code. DumPy combines elements of Python’s easy readability with additional constraints that encourage structured programming. The goal is to offer developers a language that is flexible but disciplined, making it easier to maintain code over time.
 
-This guide will cover DumPy’s syntax, key features, and grammar, providing an insight into its underlying design philosophy and practical examples of how to use it.
+This guide will cover DumPy’s syntax, key features, and grammar, providing insight into its underlying design philosophy and practical examples of how to use it.
 
 ## Getting Started: Writing Your First DumPy Program
 
@@ -84,7 +84,7 @@ else:
     echo("Needs improvement.")
 ```
 
-Loops are also straightforward. DumPy supports `for` loops for iteration, and `while` loops for repeating actions while a condition is true:
+Loops are also straightforward. DumPy supports `for` loops for iteration and `while` loops for repeating actions while a condition is true:
 
 ```dumpy
 # Using a for loop to calculate the sum of the first 5 integers
@@ -138,7 +138,7 @@ One of DumPy's key philosophies is to provide clear, helpful error messages that
 
 ```dumpy
 func divide(a: Integer, b: Integer) -> Integer:
-    return a/b  # Error: Missing spaces around operator '/'
+    return a / b  # Error: Missing spaces around operator '/'
 ```
 
 ### Example Error Message:
@@ -261,7 +261,7 @@ Creating DumPy as a programming language is achievable, though it requires caref
 ---
 
 ## 1. Define the Grammar (Parser)
-- Use a parser generator like [ANTLR] or Python's `ply`
+- Use a parser generator like [ANTLR] or Python's `ply`.
 - Translate DumPy's grammar rules into a formal grammar recognized by your chosen tool.
 
 ---
@@ -277,8 +277,8 @@ Creating DumPy as a programming language is achievable, though it requires caref
 ---
 
 ## 3. Develop a Compiler or Interpreter
-- **Option 1:** Write an interpreter to execute DumPy code directly.
-- **Option 2:** Build a compiler that transpiles DumPy into Python or bytecode for a custom virtual machine.
+- **Option 1**: Write an interpreter to execute DumPy code directly.
+- **Option 2**: Build a compiler that transpiles DumPy into Python or bytecode for a custom virtual machine.
 - Start with a simple interpreter using Python for rapid prototyping.
 
 ---
@@ -302,6 +302,125 @@ Creating DumPy as a programming language is achievable, though it requires caref
 - Create clear, precise error messages for syntax and runtime errors.
 - Use descriptive messages to guide developers toward solutions.
 
-
-
 This comprehensive guide has introduced the fundamental concepts of DumPy, from variables and collections to control flow, functions, and object-oriented programming. DumPy’s design philosophy prioritizes clear, maintainable code, and this is reflected throughout its grammar and syntax. By enforcing best practices, DumPy helps developers write code that is clean, understandable, and easy to debug.
+
+# Tokens
+
+## Literals
+- **NAME**: Variable name for dynamic variables. Enforces snake_case or camelCase but can only use one in a single program.
+- **CONSTANT**: Constant name for static variables. Enforces the use of all caps for constants with underscores.
+- **NUMBER**: Integer or float. Enforces the use of underscores for large numbers.
+  - **INTEGER**: Integer. Enforces the use of underscores for large numbers and no decimal points.
+  - **FLOAT**: Float. Enforces the use of underscores for large numbers and can only have one decimal point.
+- **STRING**: String. Enforces the use of double quotes or single quotes.
+- **BOOLEAN**: Boolean. Enforces the use of `True` or `False`.
+- **INDENT**: Indentation. Enforces the use of 4 spaces.
+- **DEDENT**: Dedentation. Enforces the use of 4 spaces.
+- **LINECOMMENT**: Line comment. Enforces the use of `#` for line comments.
+- **BLOCKCOMMENT**: Block comment. Enforces the use of `'''` or `"""` for block comments.
+- **SPACE**: Space. Enforces the use of spaces.
+
+## Keywords
+- **if**: If statement. Checks if a condition is true.
+- **elif**: Else if statement. Checks condition if the previous `if` and `elif` statements are false.
+- **else**: Else statement. Executes if all previous `if` and `elif` statements are false.
+- **for**: For loop. Loops through a list or iterable.
+- **while**: While loop. Loops while a condition is true.
+- **break**: Break statement. Breaks out of a loop.
+- **continue**: Continue statement. Skips the current iteration of a loop.
+- **pass**: Pass statement. Does nothing.
+- **True**: True value. Represents true or 1.
+- **False**: False value. Represents false or 0.
+- **func**: Function definition.
+- **None**: Represents no value.
+- **return**: Returns a value from a function.
+- **in**: Checks if a value is in a list or iterable.
+- **and**: Checks if two conditions are true.
+- **or**: Checks if one of two conditions is true.
+- **not**: Checks if a condition is false.
+- **is**: Checks if a value is the same class/object.
+- **String**: Class type for strings.
+- **Integer**: Class type for integers.
+- **Float**: Class type for floats.
+- **Boolean**: Class type for booleans.
+- **class**: Defines a class.
+- **global**: Defines a global variable.
+- **print**: Prints a value to the console.
+
+## Characters
+- **LPAREN**: `(` Left parenthesis.
+- **RPAREN**: `)` Right parenthesis.
+- **LBRACE**: `{` Left brace.
+- **RBRACE**: `}` Right brace.
+- **LBRACKET**: `[` Left bracket.
+- **RBRACKET**: `]` Right bracket.
+- **COMMA**: `,` Comma.
+- **DOT**: `.` Dot.
+- **COLON**: `:` Colon.
+- **SEMICOLON**: `;` Semicolon.
+- **PLUS**: `+` Plus.
+- **MINUS**: `-` Minus.
+- **TIMES**: `*` Times.
+- **DIVIDE**: `/` Divide.
+-- **MOD**: `%` Modulus.
+- **POWER**: `**` Power.
+- **EQUALS**: `=` Equals.
+- **EQ**: `==` Equal to.
+- **NE**: `!=` Not equal to.
+- **LT**: `<` Less than.
+- **LE**: `<=` Less than or equal to.
+- **GT**: `>` Greater than.
+- **GE**: `>=` Greater than or equal to.
+
+## Grammar
+
+### Program
+```dumpy
+program : (function | class | statement | NEWLINE)*
+```
+
+### Statements
+```dumpy
+statement : assignment | if_statement | for_statement | while_statement | expression | print_statement
+assignment : (NAME | CONSTANT) EQUALS (expression | STRING | NUMBER | BOOLEAN)
+```
+
+### Control Flow
+```dumpy
+if_statement : IF SPACE expression COLON INDENT statement DEDENT (elif_statement | else_statement)?
+elif_statement : ELIF SPACE expression COLON INDENT statement DEDENT (elif_statement | else_statement)?
+else_statement : ELSE COLON INDENT statement DEDENT
+```
+
+### Loops
+```dumpy
+for_statement : FOR SPACE NAME SPACE IN SPACE expression COLON INDENT statement DEDENT
+while_statement : WHILE SPACE expression COLON INDENT statement DEDENT
+```
+
+### Expressions
+```dumpy
+expression : (expression (PLUS | MINUS | TIMES | DIVIDE | MOD | POWER) expression) | (expression (EQ | NE | LT | LE | GT | GE) expression) | (expression (AND | OR) expression) | (NOT expression) | (expression IS expression) | (LPAREN expression RPAREN) | (NAME | CONSTANT) | (NUMBER | STRING | BOOLEAN)
+```
+
+### Print Statement
+```dumpy
+print_statement : PRINT SPACE expression
+```
+
+### Function Definitions
+```dumpy
+function : (LINECOMMENT | BLOCKCOMMENT) FUNCTION SPACE NAME LPAREN parameters RPAREN COLON INDENT statement DEDENT
+parameters : (NAME COLON SPACE type (COMMA SPACE NAME COLON SPACE type)*)?
+type : STRING | INTEGER | FLOAT | BOOLEAN | NAME
+```
+
+### Classes
+```dumpy
+class : (LINECOMMENT | BLOCKCOMMENT) CLASS SPACE NAME COLON INDENT (attribute | method | statement)* DEDENT
+attribute : NAME COLON SPACE type
+method : FUNCTION SPACE NAME LPAREN parameters RPAREN COLON INDENT statement DEDENT
+```
+
+This concludes the detailed overview of DumPy's grammar, syntax, and language structure. The rules and guidelines provided help ensure that code written in DumPy is clean, maintainable, and understandable. As DumPy continues to evolve, new features and extensions will be developed to further enhance the language, while staying true to its core philosophy of simplicity and structured programming.
+
