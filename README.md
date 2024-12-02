@@ -1,5 +1,14 @@
 # DumPy: A Practical Overview
 
+## Auhors
+
+- Gabrielle Karabas
+- Cooper Olson
+- Gabe Gros
+- Avery Fernandez
+
+
+
 ## Introduction to DumPy
 
 DumPy is a programming language that draws significant inspiration from Python, with the main objective of improving the process of writing clean, well-documented code. It was created with the aim of making it easier for developers to adopt best practices by retaining Python's familiar readability and flexibility while adding an additional layer of structure and discipline. The fundamental idea behind DumPy is to provide developers with a language that is highly flexible but also encourages a higher level of organization, ultimately making the code easier to understand and maintain over time.
