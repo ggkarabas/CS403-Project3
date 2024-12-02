@@ -1,4 +1,4 @@
-# DumPy: Overview
+# DumPy: An Overview
 
 ## Authors
 
