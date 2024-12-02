@@ -148,3 +148,63 @@ func main():
 
 # Start the program
 main()
+```
+
+# Explanation of the Code
+
+## Classes and Objects
+
+- **Donut Class**: Represents a donut with flavor and price. Includes methods to initialize and display information.
+- **Cart Class**: Manages the items the customer adds to their cart. Contains methods to add items, display the order summary, and clear the cart.
+- **DonutShop Class**: Holds the menu of available donuts. Includes methods to display the menu and retrieve donuts based on user selection.
+
+## Main Function
+
+- **`main()`**: The entry point of the program. It initializes the `DonutShop` and `Cart` objects and runs a loop to interact with the user via a menu.
+
+## Control Flow
+
+- **Menu Loop**: A `while` loop keeps the program running until the user chooses to exit.
+- **User Choices**: `if-elif-else` statements handle different menu options.
+- **Input Validation**: Checks user input for validity and provides feedback.
+
+## Type Annotations
+
+- **Variables and Functions**: All variables and function parameters/return types are annotated for type safety.
+
+## User Interaction
+
+- **`echo` Function**: Outputs messages to the console.
+- **`input` Function**: Receives user input.
+
+## Demonstrated DumPy Features
+
+- **Readability and Formatting**: Clean syntax with enforced spacing and indentation rules.
+- **Type Safety**: Explicit type annotations prevent type-related errors.
+- **Object-Oriented Programming**: Use of classes and objects to model the donut shop.
+- **Control Structures**: Implementation of loops and conditional statements.
+- **Collections**: Use of lists to manage the menu and cart items.
+- **String Manipulation**: Concatenation and conversion of data types to strings.
+- **Error Handling**: Logical checks to handle invalid inputs and actions.
+- **Built-in Functions**: Utilization of `len()`, `enumerate()`, and type conversion functions.
+
+## Possible Extensions
+
+Enhance the ordering system by adding features such as:
+
+- **Custom Donut Creation**: Allow users to create custom donuts with their choice of toppings.
+- **Discounts and Promotions**: Implement special offers or loyalty rewards for customers.
+- **Order History**: Keep track of previous orders within the session.
+- **Multiple Payment Options**: Simulate different payment methods.
+- **Inventory Management**: Track the quantity of each donut and update availability.
+
+## Conclusion
+
+The Gigi's Donuts Ordering System demonstrates how DumPy can be used to build interactive, console-based applications. By utilizing DumPy's features such as type safety, object-oriented programming, and enforced formatting rules, developers can create readable and maintainable code suitable for both learning and professional development.
+
+This project showcases DumPy's emphasis on clarity and best practices, making it an ideal language for those who prioritize clean and reliable codebases.
+
+## Note
+
+**Disclaimer**: DumPy is a hypothetical programming language designed for illustrative purposes. The code provided in this project cannot be executed in a real-world environment but serves to demonstrate the language's syntax and features.
+
