@@ -1,13 +1,11 @@
 # DumPy: Overview
 
-## Auhors
+## Authors
 
 - Gabrielle Karabas
 - Cooper Olson
 - Gabe Gros
 - Avery Fernandez
-
-
 
 ## Introduction to DumPy
 
