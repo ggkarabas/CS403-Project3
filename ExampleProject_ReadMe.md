@@ -149,6 +149,107 @@ func main():
 # Start the program
 main()
 ```
+# How to Use the Program
+
+Since DumPy is a hypothetical language, we'll explain how you would use the program if it were implemented:
+
+1. **Run the Program**: Execute the DumPy script in your DumPy interpreter.
+2. **Navigate the Menu**: Use the numerical menu options to navigate through the system.
+3. **View the Menu**: Select option `1` to see the available donuts and their prices.
+4. **Place an Order**: Choose option `2`, view the menu, and input the number corresponding to the donut you wish to add to your cart.
+5. **View Order Summary**: Option `3` displays the items in your cart and the total cost.
+6. **Checkout**: Select option `4` to finalize your order and clear your cart.
+7. **Exit**: Choose option `5` to exit the ordering system.
+
+## Expected Output
+
+Below is a sample interaction with the program:
+
+```plaintext
+Welcome to Gigi's Donuts!
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 1
+
+Gigi's Donuts Menu:
+1. Glazed - $1.25
+2. Chocolate - $1.5
+3. Strawberry - $1.5
+4. Boston Cream - $1.75
+5. Apple Fritter - $2.0
+
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 2
+
+Gigi's Donuts Menu:
+1. Glazed - $1.25
+2. Chocolate - $1.5
+3. Strawberry - $1.5
+4. Boston Cream - $1.75
+5. Apple Fritter - $2.0
+
+Enter the number of the donut to add to your cart: 2
+Added to cart: Chocolate
+
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 2
+
+Gigi's Donuts Menu:
+1. Glazed - $1.25
+2. Chocolate - $1.5
+3. Strawberry - $1.5
+4. Boston Cream - $1.75
+5. Apple Fritter - $2.0
+
+Enter the number of the donut to add to your cart: 5
+Added to cart: Apple Fritter
+
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 3
+
+Your Order Summary:
+- Chocolate: $1.5
+- Apple Fritter: $2.0
+Total Cost: $3.5
+
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 4
+
+Your Order Summary:
+- Chocolate: $1.5
+- Apple Fritter: $2.0
+Total Cost: $3.5
+
+Thank you for your purchase!
+
+1. View Menu
+2. Place an Order
+3. View Order Summary
+4. Checkout
+5. Exit
+Enter your choice (1-5): 5
+Thank you for visiting Gigi's Donuts! Goodbye!
+
+```
 
 # Explanation of the Code
 
