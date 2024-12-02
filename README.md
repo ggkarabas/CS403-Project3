@@ -338,6 +338,92 @@ DumPy should include a standard library with built-in functions like `echo`, `ra
 ## 6. Error Handling
 Error handling is a crucial part of any programming language. DumPy should provide clear, precise error messages for both syntax errors and runtime errors. These error messages should be descriptive enough to guide developers toward effective solutions, making the debugging process as smooth as possible.
 
+# Sample Project: Gigi's Donuts Ordering System
+
+To showcase the practical application of DumPy, a sample project called **Gigi's Donuts Ordering System** is provided. This console-based application simulates a simple donut shop where customers can:
+
+- **View the Donut Menu**: Display all available donut flavors with their prices.
+- **Place Orders**: Add selected donuts to a shopping cart.
+- **View Order Summary**: Review items in the cart and see the total cost.
+- **Checkout**: Finalize the order and receive a thank-you message.
+- **Exit**: Leave the ordering system.
+
+## Where to Find the Example
+
+- **Project Overview and Explanation**: Detailed information about the example project, including code explanations and features demonstrated, can be found in the [ExampleProject_ReadMe.md](ExampleProject_ReadMe.md) file.
+
+- **DumPy Code**: The complete DumPy code for the Gigi's Donuts Ordering System is available in the [DumPyExample.txt](DumPyExample.txt) file.
+
+- **Expected Output**: The expected output when running the program is provided in the [DumpyExample_ExpectedOutput.txt](DumpyExample_ExpectedOutput.txt) file.
+
+## Explanation of the Code
+
+### Classes and Objects
+
+- **Donut Class**: Represents a donut with `flavor` and `price`. Includes methods to initialize and display information.
+
+- **Cart Class**: Manages the items the customer adds to their cart. Contains methods to add items, display the order summary, and clear the cart.
+
+- **DonutShop Class**: Holds the menu of available donuts. Includes methods to display the menu and retrieve donuts based on user selection.
+
+### Main Function
+
+- **`main()`**: Acts as the entry point of the program. It initializes the `DonutShop` and `Cart` objects and runs a loop to interact with the user via a menu.
+
+### Control Flow
+
+- **Menu Loop**: A `while` loop keeps the program running until the user chooses to exit.
+
+- **User Choices**: `if-elif-else` statements handle different menu options.
+
+- **Input Validation**: Checks user input for validity and provides appropriate feedback.
+
+### Type Annotations
+
+- **Variables and Functions**: All variables and function parameters/return types are annotated for type safety.
+
+### User Interaction
+
+- **`echo` Function**: Outputs messages to the console.
+
+- **`input` Function**: Receives user input.
+
+## Demonstrated DumPy Features
+
+- **Readability and Formatting**: Clean syntax with enforced spacing and indentation rules.
+
+- **Type Safety**: Explicit type annotations prevent type-related errors.
+
+- **Object-Oriented Programming**: Use of classes and objects to model the donut shop.
+
+- **Control Structures**: Implementation of loops and conditional statements.
+
+- **Collections**: Use of lists to manage the menu and cart items.
+
+- **String Manipulation**: Concatenation and conversion of data types to strings.
+
+- **Error Handling**: Logical checks to handle invalid inputs and actions.
+
+- **Built-in Functions**: Utilization of `len()`, `enumerate()`, and type conversion functions.
+
+## How to Use the Program
+
+Since DumPy is a hypothetical language, the usage is explained as if it were implemented:
+
+1. **Run the Program**: Execute the DumPy script in the DumPy interpreter.
+
+2. **Navigate the Menu**: Use the numerical menu options to navigate through the system.
+
+3. **View the Menu**: Select option `1` to see the available donuts and their prices.
+
+4. **Place an Order**: Choose option `2`, view the menu, and input the number corresponding to the donut to add to the cart.
+
+5. **View Order Summary**: Option `3` displays the items in the cart and the total cost.
+
+6. **Checkout**: Select option `4` to finalize the order and clear the cart.
+
+7. **Exit**: Choose option `5` to exit the ordering system.
+
 # Conclusion 
 
 DumPy is designed to address the challenges of writing clean, maintainable, and readable code by building on the strengths of Python while introducing a more structured and disciplined approach. Its emphasis on readability, type safety, and consistent formatting makes it a practical choice for developers at all skill levels, from beginners learning best practices to experienced professionals managing complex projects.
