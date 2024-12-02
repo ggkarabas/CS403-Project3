@@ -1,4 +1,4 @@
-# DumPy: A Practical Overview
+# DumPy: Overview
 
 ## Auhors
 
